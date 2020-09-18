@@ -4,19 +4,30 @@ import ItemCard from './ItemCard'
 
 
 
-class ItemContainer extends React.Component{
+const ItemContainer = (props) => {
+    // props.cartActions.addToCart(id);
+    return (
 
+        <>
+            <p className="stump">STUMPTOWN</p>
+            <p className="coffee">COFFEE ROASTERS</p>
+            <div class="display">
+                <ul class="container-parent">
+                    {props.items.map(itemsObj =>
 
+                        <ItemCard
+                            key={itemsObj.id}
+                            items={itemsObj}
+                            onPageChange={props.onPageChange}
+                            cartActions={props.cartActions}
+                        />
+                    )}
+                </ul>
+            </div>
+        </>
+    )
 
-    render(){
-        return(
-            <>
-            <h1>ItemContainer</h1>
-            <ItemCard />
-            </>
-        )
-
-    }
 }
+
 
 export default ItemContainer

@@ -1,21 +1,19 @@
-import React from 'react'
+import React from "react";
 
 
+const Search = (props) => {
+
+  let handleChange = evt => {
+    props.changeSearchTerm(evt.target.value)
+  }
+  return (
+
+    <div className="searchBar">
+      <input class="select" type="text" placeholder="Coffee Beans..." value={props.searchTerm} onChange={handleChange} aria-label="Search" />
+    </div>
+  );
 
 
-class Search
- extends React.Component{
-
-
-
-    render(){
-        return(
-            <h1>Search
-                
-            </h1>
-        )
-
-    }
 }
 
-export default Search
+export default Search;

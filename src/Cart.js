@@ -1,19 +1,22 @@
 import React from 'react'
 import CartPage from './CartPage'
+import { Route } from 'react-router-dom'
 
 
 
 
-class Cart
- extends React.Component{
+class Cart extends React.Component {
 
 
 
-    render(){
-        return(
+    render() {
+
+        return (
             <>
-            <h1>Cart</h1>
-            <CartPage />
+
+                <Route path="/cartpage" >
+                    <CartPage cartArray={this.props.cartArray} />
+                </Route>
             </>
         )
 
