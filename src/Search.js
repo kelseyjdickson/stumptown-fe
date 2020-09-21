@@ -9,7 +9,7 @@ const Search = (props) => {
   return (
 
     <div className="searchBar">
-      <input class="select" type="text" placeholder="Coffee Beans..." value={props.searchTerm} onChange={handleChange} aria-label="Search" />
+      <input className="select" type="text" placeholder="Coffee Beans..." value={props.searchTerm} onChange={handleChange} aria-label="Search" />
     </div>
   );
 

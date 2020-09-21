@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from './header.png'
+import logo from './photos/header.png'
 
 
 
@@ -11,9 +11,9 @@ class Header extends React.Component{
         return(
             <>
           
-            {/* <p id="overlay">Free Shipping On Orders Over $40: Due to fires in Oregon, some orders might face delays.</p> */}
+           
               
-            <img class="header-logo"src={logo} alt="header logo"></img>
+            <img className="header-logo"src={logo} alt="header logo"></img>
            </>
             
         )

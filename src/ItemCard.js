@@ -25,7 +25,7 @@ class ItemCard extends React.Component {
                 <Grid centered columns={2}>
                 <Grid.Column>
                 <Link to={`/items/${id}`}>
-                     <Image src={image_url}  alt="coffee beans" onClick={() => this.props.onPageChange("item-detail")} />
+                     <Image src={image_url}  alt="coffee beans" size="massive"onClick={() => this.props.onPageChange("item-detail")} />
                      </Link>
              <p className="name">{name}</p>
              <p className="price">${price}.00</p>

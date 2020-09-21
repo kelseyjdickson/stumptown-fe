@@ -1,8 +1,8 @@
 import React from 'react'
 import Search from './Search'
 import Cart from './Cart'
-import HorseShoe from './horseshoe.png'
-import SuperMarket from './supermarket.png'
+import HorseShoe from './photos/horseshoe.png'
+import SuperMarket from './photos/supermarket.png'
 import { NavLink, Link } from 'react-router-dom'
 
 
@@ -18,12 +18,12 @@ class NavBar extends React.Component {
 
         return (
             <>
-                <div class="flex">
-                    <img class="horse" src={HorseShoe} alt="horsehoe"></img>
-                    <NavLink class="home" to="/items">
-                        <img class="coffee-icon" src="https://img.icons8.com/ios/100/000000/coffee-beans-.png" alt="coffee-icon" />                    <Link to="/locations" class="locations" >Locations</Link>
+                <div className="flex">
+                    <img className="horse" src={HorseShoe} alt="horsehoe"></img>
+                    <NavLink className="home" to="/items">
+                        <img className="coffee-icon" src="https://img.icons8.com/ios/100/000000/coffee-beans-.png" alt="coffee-icon" />                    <Link to="/locations" className="locations" >Locations</Link>
                     </NavLink>
-                    <Link class="cart" to="/cartpage">
+                    <Link className="cart" to="/cart">
                         <img src={SuperMarket} alt="supermarket"></img>
                         <span>{this.props.cartArray.length}</span>
                     </Link>
@@ -31,7 +31,10 @@ class NavBar extends React.Component {
                 </div>
                 <Search searchTerm={this.props.searchTerm}
                     changeSearchTerm={this.props.changeSearchTerm} />
-                <Cart cartArray={this.props.cartArray} />
+                {/* <Cart 
+                cartArray={this.props.cartArray}
+                cartActions={this.props.cartActions}
+                 /> */}
             </>
         )
 

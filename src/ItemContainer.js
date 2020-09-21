@@ -11,8 +11,8 @@ const ItemContainer = (props) => {
         <>
             <p className="stump">STUMPTOWN</p>
             <p className="coffee">COFFEE ROASTERS</p>
-            <div class="display">
-                <ul class="container-parent">
+            <div className="display">
+                <ul className="container-parent">
                     {props.items.map(itemsObj =>
 
                         <ItemCard

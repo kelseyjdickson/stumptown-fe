@@ -1,4 +1,7 @@
 import React from 'react'
+import Footer from './Footer';
+
+
 
 
 
@@ -6,31 +9,88 @@ import React from 'react'
 class CartPage extends React.Component{
 
 
+    state ={ 
+        quanity: 1,
+        show: true,
+        max: 5,
+        min:0, 
+        cartArray: []
+    } 
 
+    
+    IncrementItem = () => {
+       this.setState(prevState => {
+           if(prevState.quanity < 9) {
+               return {
+                   quanity: prevState.quanity +1
+               }
+           } else {
+               return null
+           }
+       })
+    }
+
+    DecreaseItem = () => {
+        this.setState(prevState => {
+            if(prevState.quanity > 0) {
+                return {
+                    quanity: prevState.quanity - 1
+                }
+            } else {
+                return null;
+            }
+        })
+    }
+
+    ToggleClick = () => {
+        this.setState({ show: !this.state.show });
+      }
+    
+
+    handleChange = (evt) => {
+        this.setState({
+            quanity: evt.target.value
+        })
+    }
+    
+
+   
 render(){
-    console.log("kelsey",this.props)
 
+    console.log(this.props.item)
+//  console.log("pop",this.props)
+
+
+
+       let {  name, price, image_url } = this.props.item.item
      
         return(
             <>
         <h1 class="cart-font">CART</h1>
 
         <div class="flex-cart">
+        <div>
         <h3>Item</h3>
-        {/* name of coffee below */}
+        </div>
+        <div>
+        <h3>{name}</h3>
+        </div>
+        <div>
+       <img src={image_url} alt="item-info"/>
+       </div>
 
         <h3>Price</h3>
-        {/* Price of coffee */}
+         <h3>{price}</h3>
 
         <h3>Quantity</h3>
-        <button class="neg-btn"> - </button>
-        <p> 1</p>
-        <button class="plus-btn"onClick={this.handleClick}> +</button>
+        <button class="neg-btn" onClick={this.DecreaseItem}> - </button>
+      <input className="cart-num" value={this.state.quanity} onChange={this.handleChange}/>
+        <button class="plus-btn"onClick={this.IncrementItem}> +</button>
         {/* qty */}
 
 
         <h3>Subtotal</h3>
-        <p>X delete</p>
+        <button onClick={()=>this.props.removeItem(this.props.item)}>X</button>
 
         </div>
         <div class="total-box">
@@ -44,6 +104,7 @@ render(){
         </div>
 
 
+            <Footer/>
 
         </>
         )

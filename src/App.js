@@ -1,11 +1,15 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom'
 import Header from './Header'
 import ItemContainer from './ItemContainer'
 import NavBar from './NavBar'
 import ItemDetail from './ItemDetail'
 import './App.css';
 import Locations from './Locations'
+import Banner from './Banner'
+import Cart from './Cart'
+import Footer from "./Footer"
+import { Route, Switch } from 'react-router-dom'
+import { Item } from 'semantic-ui-react';
 
 
 
@@ -32,6 +36,14 @@ class App extends React.Component {
       })
   }
 
+  // addItemToCart = (currentItemObj) => {
+  //   let addingObj = [currentItemObj, ...this.state.cartArray]
+  //   this.setState({
+  //     cartArray: addingObj,
+  //   })
+  // }
+
+
   addItemToCart = (id) => {
     // find the item for this id in this.state.items
     const itemMatch = this.state.items.filter((item) => {
@@ -57,16 +69,17 @@ class App extends React.Component {
     }
   }
 
-  deleteItemFromCart = (id) => {
-     // update this.cartArray to exclude the item with this id
-     // filter the cartArray for an item that matches this id
-     // don't do anything if there is no match
-     // update state with a cart that excludes this item.
-  }
 
-  calculateCartTotal = () => {
+  // deleteItemFromCart = (id) => {
+  //    // update this.cartArray to exclude the item with this id
+  //    // filter the cartArray for an item that matches this id
+  //    // don't do anything if there is no match
+  //    // update state with a cart that excludes this item.
+  // }
 
-  }
+  // calculateCartTotal = () => {
+
+  // }
 
 
 
@@ -82,7 +95,7 @@ class App extends React.Component {
     this.setState({ page })
   }
 
-  getCurrentPage() {
+  getCurrentPage(){
     switch (this.state.page) {
 
       case "items":
@@ -98,6 +111,16 @@ class App extends React.Component {
         return <h1>404 not found</h1>
     }
   }
+
+  removeItem = (itemObj) => {
+    let updatedCart = this.state.cartArray.filter((item) => {
+      return item !== itemObj 
+    })
+    this.setState({
+      cartArray: updatedCart
+    })
+
+  }
   // I want to get rid of header when I navigate to other pages
   // if (this.state.page === "/items") {
   //      return }
@@ -110,19 +133,21 @@ class App extends React.Component {
     const cartActions = { addItemToCart: this.addItemToCart, deleteItemFromCart: this.deleteItemFromCart, calculateCartTotal: this.calculateCartTotal }
 
     return (
+  <div className="App">
+   
 
-      <div className="App">
-
+        <Banner/>
         <Header />
         <NavBar searchTerm={this.state.searchTerm}
           changeSearchTerm={this.changeSearchTerm}
-          cartArray={this.state.cartArray} />
-
+          cartArray={this.state.cartArray}
+          cartActions={cartActions} />
+        
         <main>
           <Switch>
             {/* ITEM CONTAINER */}
             <Route path="/items" exact>
-              <ItemContainer
+              <ItemContainer style={{backgroundColor:"white"}}
                 items={filteredItems}
                 cartActions={cartActions}
 
@@ -136,10 +161,25 @@ class App extends React.Component {
             <Route path="/locations">
               <Locations />
             </Route>
+            <Route path="/cart" >
+              <Cart
+               cartArray={this.state.cartArray}
+               cartActions={this.props.cartActions}
+               removeItem={this.removeItem}
+              
+              />
+            </Route>
           </Switch>
+        {/* <Footer /> */}
         </main>
-      </div>
-
+        </div>
+         
+         
+      
+      
+      
+          
+        
     );
   }
 }
