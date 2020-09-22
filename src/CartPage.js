@@ -1,5 +1,6 @@
 import React from 'react'
-import Footer from './Footer';
+
+import { Grid, Image, Header, Button } from "semantic-ui-react";
 
 
 
@@ -10,7 +11,7 @@ class CartPage extends React.Component{
 
 
     state ={ 
-        quanity: 1,
+        quantity: 1,
         show: true,
         max: 5,
         min:0, 
@@ -20,9 +21,9 @@ class CartPage extends React.Component{
     
     IncrementItem = () => {
        this.setState(prevState => {
-           if(prevState.quanity < 9) {
+           if(prevState.quantity < 9) {
                return {
-                   quanity: prevState.quanity +1
+                   quantity: prevState.quantity +1
                }
            } else {
                return null
@@ -32,9 +33,9 @@ class CartPage extends React.Component{
 
     DecreaseItem = () => {
         this.setState(prevState => {
-            if(prevState.quanity > 0) {
+            if(prevState.quantity > 0) {
                 return {
-                    quanity: prevState.quanity - 1
+                    quantity: prevState.quantity - 1
                 }
             } else {
                 return null;
@@ -49,7 +50,7 @@ class CartPage extends React.Component{
 
     handleChange = (evt) => {
         this.setState({
-            quanity: evt.target.value
+            quantity: evt.target.value
         })
     }
     
@@ -66,9 +67,9 @@ render(){
      
         return(
             <>
-        <h1 class="cart-font">CART</h1>
+        
 
-        <div class="flex-cart">
+        {/* <div class="flex-cart">
         <div>
         <h3>Item</h3>
         </div>
@@ -84,32 +85,69 @@ render(){
 
         <h3>Quantity</h3>
         <button class="neg-btn" onClick={this.DecreaseItem}> - </button>
-      <input className="cart-num" value={this.state.quanity} onChange={this.handleChange}/>
+      <input className="cart-num" value={this.state.quantity} onChange={this.handleChange}/>
         <button class="plus-btn"onClick={this.IncrementItem}> +</button>
+        </div>
         {/* qty */}
 
 
-        <h3>Subtotal</h3>
-        <button onClick={()=>this.props.removeItem(this.props.item)}>X</button>
-
-        </div>
-        <div class="total-box">
-            <div class="sub2" >
-                <h1 >Subtotal: </h1>
-                <h1>Total: </h1>
-            </div>
-        </div>
-        <div class="button">
-            <button class="checkout-btn">Checkout</button>
-        </div>
+        {/* <h3>Subtotal</h3>
+        <button onClick={()=>this.props.removeItem(this.props.item)}>X</button>  */}
 
 
-            <Footer/>
+        <Grid>
+          <Grid.Row>
+            <Grid.Column width={3}>
+                <h1>Item</h1>
+              <Image src={image_url} />
+                {name}
+            </Grid.Column>
+           
+            <Grid.Column width={3}>
+                <h1>Price</h1>
+              <Header as="h3" textAlign="center">
+                ${price}.00
+              </Header>
+            </Grid.Column>
+            <Grid.Column width={2}>
+                <h1>Quantity</h1>
+              <Header as="h3" textAlign="center">
+                <Button floated="left" onClick={this.DecreaseItem}>
+                  <span role="img">➖</span>
+                </Button>
+                 {this.state.quantity}
+                <Button floated="right" onClick={this.IncrementItem}>
+                  <span role="img">➕</span>
+                </Button>
+              </Header>
+            </Grid.Column>
+            <Grid.Column width={3}>
+                <h1>Subtotal</h1>
+              <Header as="h3" textAlign="center">
+                  
+              </Header>
+            </Grid.Column>
+            <Grid.Column width={1}>
+            <Header as="h3" textAlign="center" onClick={()=>this.props.removeItem(this.props.item)}>
+                X
+              </Header>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+
+
+     
+
+  
+
+
+
+            {/* <Footer/> */}
 
         </>
+        
         )
-
     }
-}
+} 
 
 export default CartPage

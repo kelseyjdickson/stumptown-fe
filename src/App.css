@@ -58,12 +58,66 @@
   
 }
 /* NavBar */
+
+
+/* UPDATED */
+/* Style The Dropdown Button */
+.dropbtn {
+ background-color:white;
+  color: rgba(191,149,90,0.95);
+  padding: 16px;
+  font-size: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: rgba(191,149,90,0.95);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: rgba(191,149,90,0.95);
+  color: white;
+}
+
+.drop-cart{
+  font-size: 30px;
+}
+
+/* END  */
 .flex {
   display:flex;
 }
-.cart {
-  margin-left: 84%;
-}
+
 
 .horse{
   margin-left: 10px;
@@ -74,9 +128,21 @@
   text-decoration: none;
   color: black
 }
-.coffee-icon{
+.cart{
+
+  position: absolute;
+  right: 0;
+  
+  
+}
+.span-cart{
+  font-size: 30px;
+  margin-left: 20px;
+  padding-right: 20px;
+  font-weight: 600;
   color: rgba(191,149,90,0.95);
 }
+
 
 .locations {
   font-size: 30px;
@@ -88,6 +154,7 @@
 
 .searchBar {
   width: 0%;
+ 
   
   
 }
@@ -236,4 +303,12 @@ justify-content: space-around;
 .list-unstyled {
   list-style-type: none;
   
+}
+
+/* ALL BUTTONS */
+
+button {
+  padding: 0;
+border: none;
+background: none;
 }

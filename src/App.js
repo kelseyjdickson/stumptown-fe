@@ -7,9 +7,9 @@ import './App.css';
 import Locations from './Locations'
 import Banner from './Banner'
 import Cart from './Cart'
-import Footer from "./Footer"
+
 import { Route, Switch } from 'react-router-dom'
-import { Item } from 'semantic-ui-react';
+
 
 
 
@@ -19,7 +19,8 @@ class App extends React.Component {
     items: [],
     page: "items",
     searchTerm: '',
-    cartArray: [] // looks like  [{ item: item, qty: }]
+    cartArray: [], // looks like  [{ item: item, qty: }]
+    cartTotal: 0
 
   }
  
@@ -77,9 +78,22 @@ class App extends React.Component {
   //    // update state with a cart that excludes this item.
   // }
 
-  // calculateCartTotal = () => {
+   calculateCartTotal = () => {
+    this.setState({ cartTotal: this.state.cartArray.reduce((acc, item) => {
+      return acc + item.item.price
+    },0)
+});
+  // let result = null;
+  //   this.state.cartArray.forEach((arrItem) => {
+  //    result += arrItem.item.price
+  //   })
+  //  this.setState(prevState => ({
+  //   cartTotal: prevState.cartTotal + result
+  //  })
+  //  )
+}
 
-  // }
+   
 
 
 
@@ -155,7 +169,8 @@ class App extends React.Component {
             </Route>
             {/* ITEM DETAIL */}
             <Route path="/items/:id" render={routeProps => {
-              return <ItemDetail match={routeProps.match} />
+              return <ItemDetail match={routeProps.match} 
+              cartActions={cartActions}/>
             }} />
             {/* LOCATIONS */}
             <Route path="/locations">
@@ -166,6 +181,7 @@ class App extends React.Component {
                cartArray={this.state.cartArray}
                cartActions={this.props.cartActions}
                removeItem={this.removeItem}
+
               
               />
             </Route>

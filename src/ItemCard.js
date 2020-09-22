@@ -8,8 +8,11 @@ import { Grid } from 'semantic-ui-react'
 
 class ItemCard extends React.Component {
     
-
-
+handleClick = () => {
+    this.props.cartActions.addItemToCart(this.props.items.id)
+    this.props.cartActions.calculateCartTotal()
+    
+}
     render() {
 
         // console.log("This is state:",this.state);
@@ -29,7 +32,7 @@ class ItemCard extends React.Component {
                      </Link>
              <p className="name">{name}</p>
              <p className="price">${price}.00</p>
-             <button onClick={() => { this.props.cartActions.addItemToCart(id) }} className="add">Add to Cart +</button> 
+             <button onClick={this.handleClick} className="add" >Add to Cart +</button> 
                  </Grid.Column>
              </Grid>
 

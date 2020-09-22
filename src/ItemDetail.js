@@ -20,6 +20,10 @@ class ItemDetail extends React.Component {
 
     }
 
+    // handleClick = () => {
+    //     this.props.cartActions.addItemToCart()
+    // }
+
 
     render() {
 
@@ -36,7 +40,7 @@ class ItemDetail extends React.Component {
                 <img src={image_url} alt="coffee beans" />
                 <p className="price">${price}.00</p>
 
-                <p className="add">Add to Cart +</p>
+                <button className="add" >Add to Cart +</button>
             </div>
         )
 
