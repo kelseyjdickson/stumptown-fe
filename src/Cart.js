@@ -1,6 +1,7 @@
 import React from 'react'
 import CartPage from './CartPage'
 import Footer from './Footer';
+import CheckoutModal from './CheckoutModal'
 
 
 
@@ -22,7 +23,7 @@ class Cart extends React.Component {
    
      
     render() {
-      
+        console.log("cart total", this.props.cart)
         // console.log(this.props.item)
         return (
             <>
@@ -34,11 +35,12 @@ class Cart extends React.Component {
            <div class="total-box">
             <div>
                 {/* {this.props.cartActions.calculateCartTotal()}  */}
-                <h1>Total:$.00</h1>
+                <h1>Total:${this.props.cartTotal}.00</h1>
             </div>
         </div>
         <div class="button">
-            <button class="checkout-btn">Checkout</button>
+            <CheckoutModal
+            cartArray={this.props.cartArray}  />
         </div>
            <Footer/> 
             </>

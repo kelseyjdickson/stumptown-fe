@@ -78,11 +78,11 @@ class App extends React.Component {
   //    // update state with a cart that excludes this item.
   // }
 
-   calculateCartTotal = () => {
-    this.setState({ cartTotal: this.state.cartArray.reduce((acc, item) => {
-      return acc + item.item.price
-    },0)
-});
+//    calculateCartTotal = () => {
+//     this.setState({ cartTotal: this.state.cartArray.reduce((acc, item) => {
+//       return acc + item.item.price
+//     },0)
+// });
   // let result = null;
   //   this.state.cartArray.forEach((arrItem) => {
   //    result += arrItem.item.price
@@ -91,6 +91,19 @@ class App extends React.Component {
   //   cartTotal: prevState.cartTotal + result
   //  })
   //  )
+// }
+
+componentDidUpdate(prevProps, prevState){
+  if(prevState.cartArray !== this.state.cartArray){
+    let total = this.state.cartArray.reduce((sum, product)=>
+    sum + product.item.price, 0 );
+
+    this.setState({
+      cartTotal: total
+    })
+    console.log("prevState", prevState)
+    console.log("State",this.state)
+  }
 }
 
    
@@ -181,6 +194,7 @@ class App extends React.Component {
                cartArray={this.state.cartArray}
                cartActions={this.props.cartActions}
                removeItem={this.removeItem}
+               cartTotal={this.state.cartTotal}
 
               
               />

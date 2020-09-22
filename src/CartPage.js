@@ -69,30 +69,6 @@ render(){
             <>
         
 
-        {/* <div class="flex-cart">
-        <div>
-        <h3>Item</h3>
-        </div>
-        <div>
-        <h3>{name}</h3>
-        </div>
-        <div>
-       <img src={image_url} alt="item-info"/>
-       </div>
-
-        <h3>Price</h3>
-         <h3>{price}</h3>
-
-        <h3>Quantity</h3>
-        <button class="neg-btn" onClick={this.DecreaseItem}> - </button>
-      <input className="cart-num" value={this.state.quantity} onChange={this.handleChange}/>
-        <button class="plus-btn"onClick={this.IncrementItem}> +</button>
-        </div>
-        {/* qty */}
-
-
-        {/* <h3>Subtotal</h3>
-        <button onClick={()=>this.props.removeItem(this.props.item)}>X</button>  */}
 
 
         <Grid>
@@ -142,7 +118,6 @@ render(){
 
 
 
-            {/* <Footer/> */}
 
         </>
         

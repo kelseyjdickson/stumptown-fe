@@ -10,7 +10,7 @@ class ItemCard extends React.Component {
     
 handleClick = () => {
     this.props.cartActions.addItemToCart(this.props.items.id)
-    this.props.cartActions.calculateCartTotal()
+    // this.props.cartActions.calculateCartTotal()
     
 }
     render() {
