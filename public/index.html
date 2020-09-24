@@ -4,15 +4,30 @@
     <meta charset="utf-8" />
     <link href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@900&family=Changa+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
-        <link href="App.css" rel="stylesheet">
+    <link href="App.css" rel="stylesheet">
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+
      
     
  
-    <title>Stumptown Coffee Roasters</title>
+    <title>☕️Stumptown Coffee Roasters☕️</title> 
+   
+
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
    <div id="root"></div>
-  
+   <script>
+    mapboxgl.accessToken = 'pk.eyJ1Ijoia2Vsc2V5bWFwYm94IiwiYSI6ImNrZmQ4c211MDAzeHgyem52NGM3czF3c2gifQ.U1CqrvKpS8hv3up3_90AFQ';
+  var map = new mapboxgl.Map({
+  container: 'map', // container id
+  style: 'mapbox://styles/mapbox/streets-v11', // style URL
+  center: [-74.5, 40], // starting position [lng, lat]
+  zoom: 9 // starting zoom
+  });
+  </script>
+   
   </body>
 </html>

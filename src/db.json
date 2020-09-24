@@ -1,0 +1,41 @@
+
+{
+"locations": [
+    {
+        "id":1,
+        "name":"Division",
+        "hours": "Daily 7am-3pm",
+        "coordinates": [-122.615460, 45.505510]
+
+    },
+    {
+        "id":2,
+        "name":"Belmont",
+        "hours": "Daily 7am-3pm",
+        "coordinates": [-122.642910, 45.516410]
+
+    },
+    {
+        "id":3,
+        "name":"Ace Hotel Portland",
+        "hours": "Daily 7am-3pm",
+        "coordinates": [-122.681560, 45.522110]
+
+    },
+    {
+        "id":4,
+        "name":"Downtown",
+        "hours": "Daily 7am-3pm",
+        "coordinates": [-122.673279, 45.521740]
+
+    },
+    {
+        "id":5,
+        "name":"Ace Hotel New York",
+        "hours": "Daily 7am-3pm",
+        "coordinates": [-73.994262, 40.748299]
+
+    }
+   
+]
+}

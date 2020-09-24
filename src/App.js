@@ -9,6 +9,7 @@ import Banner from './Banner'
 import Cart from './Cart'
 
 import { Route, Switch } from 'react-router-dom'
+import Subscriptions from './Subscriptions';
 
 
 
@@ -37,15 +38,22 @@ class App extends React.Component {
       })
   }
 
-  // addItemToCart = (currentItemObj) => {
+  // addItemToCartDetail = (currentItemObj) => {
   //   let addingObj = [currentItemObj, ...this.state.cartArray]
   //   this.setState({
   //     cartArray: addingObj,
   //   })
   // }
 
+  // addItemToCartDetail =  (currentItemObj) => {
+  //   let addingObj = [currentItemObj, ...this.state.cartArray];
+  //   this.setState((prevState) => ({ ...prevState, cartArray: addingObj }));
+  //   // this.cartTotal();
+  // };
+
 
   addItemToCart = (id) => {
+    console.log("made it")
     // find the item for this id in this.state.items
     const itemMatch = this.state.items.filter((item) => {
       return item.id === id;
@@ -157,7 +165,7 @@ componentDidUpdate(prevProps, prevState){
       return itemObj.name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
     })
 
-    const cartActions = { addItemToCart: this.addItemToCart, deleteItemFromCart: this.deleteItemFromCart, calculateCartTotal: this.calculateCartTotal }
+    const cartActions = { addItemToCart: this.addItemToCart, deleteItemFromCart: this.deleteItemFromCart, calculateCartTotal: this.calculateCartTotal, addItemToCartDetail:this.addItemToCartDetail }
 
     return (
   <div className="App">
@@ -183,7 +191,8 @@ componentDidUpdate(prevProps, prevState){
             {/* ITEM DETAIL */}
             <Route path="/items/:id" render={routeProps => {
               return <ItemDetail match={routeProps.match} 
-              cartActions={cartActions}/>
+              cartActions={cartActions}
+              addItemToCart={this.addItemToCart}/>
             }} />
             {/* LOCATIONS */}
             <Route path="/locations">
@@ -194,10 +203,10 @@ componentDidUpdate(prevProps, prevState){
                cartArray={this.state.cartArray}
                cartActions={this.props.cartActions}
                removeItem={this.removeItem}
-               cartTotal={this.state.cartTotal}
-
-              
-              />
+               cartTotal={this.state.cartTotal}/>
+            </Route>
+            <Route path="/subscriptions">
+            <Subscriptions/>
             </Route>
           </Switch>
         {/* <Footer /> */}

@@ -70,43 +70,52 @@ render(){
         
 
 
-
+        
         <Grid>
           <Grid.Row>
             <Grid.Column width={3}>
-                <h1>Item</h1>
+                <h1 className="item">Item</h1>
+                
               <Image src={image_url} />
-                {name}
+                <h1 className="cart-desc">{name}</h1>
             </Grid.Column>
            
             <Grid.Column width={3}>
-                <h1>Price</h1>
+                <h1 className="item">Price</h1>
+                <div className="cart-price">
               <Header as="h3" textAlign="center">
                 ${price}.00
               </Header>
+              </div>
             </Grid.Column>
             <Grid.Column width={2}>
-                <h1>Quantity</h1>
+                <h1 className="item">Quantity</h1>
+                <div className="qty-button">
               <Header as="h3" textAlign="center">
                 <Button floated="left" onClick={this.DecreaseItem}>
-                  <span role="img">➖</span>
+                  <span role="img"aria-label="minus">➖</span>
                 </Button>
                  {this.state.quantity}
                 <Button floated="right" onClick={this.IncrementItem}>
-                  <span role="img">➕</span>
+                  <span role="img" aria-label="plus">➕</span>
                 </Button>
               </Header>
+                </div>
             </Grid.Column>
             <Grid.Column width={3}>
-                <h1>Subtotal</h1>
+                <h1 className="item">Subtotal</h1>
+                <div className="subtotal">
               <Header as="h3" textAlign="center">
-                  
+              ${price}.00
               </Header>
+              </div>
             </Grid.Column>
             <Grid.Column width={1}>
-            <Header as="h3" textAlign="center" onClick={()=>this.props.removeItem(this.props.item)}>
+              <div className="x">
+            <Header className="x-cart" textAlign="center" onClick={()=>this.props.removeItem(this.props.item)} style={{color: "#bf955a"}}>
                 X
               </Header>
+              </div>
             </Grid.Column>
           </Grid.Row>
         </Grid>

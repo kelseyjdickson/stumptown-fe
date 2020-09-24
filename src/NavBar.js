@@ -1,6 +1,7 @@
 import React from 'react'
 import Search from './Search'
 
+
 import HorseShoe from './photos/horseshoe.png'
 import SuperMarket from './photos/supermarket.png'
 import { NavLink, Link } from 'react-router-dom'
@@ -24,6 +25,7 @@ class NavBar extends React.Component {
                         <button class="dropbtn">Menu</button>
                         <div class="dropdown-content">
                             <NavLink className="home" to="/items">Shop</NavLink>
+                            <NavLink className="subscriptions" to="/subscriptions">Subscriptions</NavLink>
                             <NavLink to="/locations" className="locations" >Locations</NavLink>
                             <NavLink className="drop-cart" to="/cart">Cart</NavLink>
                             <Search searchTerm={this.props.searchTerm}
