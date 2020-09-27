@@ -74,6 +74,7 @@ render(){
         <Grid>
           <Grid.Row>
             <Grid.Column width={3}>
+             
                 <h1 className="item">Item</h1>
                 
               <Image src={image_url} />
@@ -83,7 +84,7 @@ render(){
             <Grid.Column width={3}>
                 <h1 className="item">Price</h1>
                 <div className="cart-price">
-              <Header as="h3" textAlign="center">
+              <Header as="h1" textAlign="center">
                 ${price}.00
               </Header>
               </div>
@@ -91,7 +92,7 @@ render(){
             <Grid.Column width={2}>
                 <h1 className="item">Quantity</h1>
                 <div className="qty-button">
-              <Header as="h3" textAlign="center">
+              <Header as="h1" textAlign="center">
                 <Button floated="left" onClick={this.DecreaseItem}>
                   <span role="img"aria-label="minus">➖</span>
                 </Button>
@@ -101,11 +102,13 @@ render(){
                 </Button>
               </Header>
                 </div>
+            
             </Grid.Column>
+           
             <Grid.Column width={3}>
                 <h1 className="item">Subtotal</h1>
                 <div className="subtotal">
-              <Header as="h3" textAlign="center">
+              <Header as="h1" textAlign="center">
               ${price}.00
               </Header>
               </div>
@@ -117,6 +120,7 @@ render(){
               </Header>
               </div>
             </Grid.Column>
+            
           </Grid.Row>
         </Grid>
 

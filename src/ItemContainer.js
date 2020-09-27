@@ -4,6 +4,7 @@ import ItemCard from './ItemCard'
 
 
 
+
 const ItemContainer = (props) => {
     // props.cartActions.addToCart(id);
     return (
@@ -24,6 +25,7 @@ const ItemContainer = (props) => {
                     )}
                 </ul>
             </div>
+           
         </>
     )
 

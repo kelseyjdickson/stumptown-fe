@@ -35,7 +35,21 @@
         "hours": "Daily 7am-3pm",
         "coordinates": [-73.994262, 40.748299]
 
+    },
+    {
+    "id":6,
+    "name":"Cobbble Hill",
+    "hours": "Daily 7am-3pm",
+    "coordinates": [-73.992190, 40.688760]
+    },
+    {
+        "id":7,
+        "name":"Greenich Village",
+        "hours": "Daily 7am-3pm",
+        "coordinates": [ -73.935242, 40.730610]
     }
+
+
    
 ]
 }

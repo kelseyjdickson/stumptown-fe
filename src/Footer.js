@@ -1,4 +1,5 @@
 import React from 'react'
+import horseshoe from './photos/horseshoe.png'
 
 
 
@@ -17,18 +18,19 @@ class Footer extends React.Component {
             <>
                 <div className="main-footer" >
                     <div className="container1">
+                        <img src={horseshoe}alt="logo"/>
                         <div className="row">
                             {/* Column1 */}
                             <div className="col">
-                                <h2>NEED HELP? CALL US MONDAY-FRIDAY 8AM-4PM (PT)</h2>
-                                <p>(855) 711-3385</p>
+                                <h2 className="need-help">NEED HELP? CALL US MONDAY-FRIDAY 8AM-4PM (PT)</h2>
+                                <p className="phone">(855) 711-3385</p>
                             </div>
                             {/* Column2 */}
                             <div className="col">
                             <ul className="list-unstyled">
-                                <li>Contact</li>
-                                <li>Jobs</li>
-                                <li>FAQ</li>
+                                <li className="li-it">Contact</li>
+                                <li className="li-it">Jobs</li>
+                                <li className="li-it">FAQ</li>
                             </ul>
                                 </div>
                             {/* Column3 */}

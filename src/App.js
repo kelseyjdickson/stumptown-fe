@@ -111,7 +111,7 @@ componentDidUpdate(prevProps, prevState){
     })
     console.log("prevState", prevState)
     console.log("State",this.state)
-  }
+  } 
 }
 
    
@@ -209,7 +209,7 @@ componentDidUpdate(prevProps, prevState){
             <Subscriptions/>
             </Route>
           </Switch>
-        {/* <Footer /> */}
+        
         </main>
         </div>
          

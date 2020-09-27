@@ -11,11 +11,13 @@ class Map extends PureComponent {
     viewport: {
 
 
-      width: '100%',
+      width: '30%',
       height: 600,
-      latitude: 39.0626831,
-      longitude: -101.642682,
-      zoom: 4,
+      // latitude: 39.0626831,
+      latitude: 45.5000,
+      // longitude: -101.642682,
+      longitude: -118.0000,
+      zoom: 2,
       selectedShop = null
      
     },
@@ -42,7 +44,7 @@ class Map extends PureComponent {
             
               <button className="marker-button">
                 <img className="coffee-marker"src={CoffeeCup}alt="coffee marker"></img>
-                {/* <span>📍</span> */}
+               
               </button>
             
 

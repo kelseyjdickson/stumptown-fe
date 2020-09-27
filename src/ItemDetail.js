@@ -1,4 +1,7 @@
 import React from "react"
+import { Link } from 'react-router-dom'
+import { Grid } from 'semantic-ui-react'
+import Footer from './Footer'
 
 
 class ItemDetail extends React.Component {
@@ -21,14 +24,13 @@ class ItemDetail extends React.Component {
     }
 
     handleClick = () => {
-        console.log("hi")
+
         this.props.addItemToCart(this.state.items.id)
     }
 
 
     render() {
 
-        console.log("Item Detail:", this.state)
 
 
         const { items } = this.state
@@ -36,24 +38,40 @@ class ItemDetail extends React.Component {
         const { name, price, image_url, description, bean } = this.state.items
 
         return (
-            <div>
+            
+            
+            <>
+            
+            <p className="item-name" >{name}</p>
+                    <div className="item-deets">
 
-                <p className="item-name">{name}</p>
-
-                <div className="detail-cont">
-                <img src={image_url} alt="coffee beans" />
-                    <div className="child">
+                <Grid columns='equal'>
+                   
+                    <Grid.Column width={8}>
+                       
+                        <img src={image_url} alt="coffee beans" />
+                      
+                    </Grid.Column>
+                    
+                    <Grid.Column >
+                        
                         <p className="price1">${price}.00</p>
-                        <div className="desc-info">
                         <p className='desc'> {description}</p>
-                        </div>
                         <p className="bean">{bean}</p>
+                        <Link to="/subscriptions">
                         <p>Available for Subscrption</p>
+                    </Link>
+                    <button onClick={this.handleClick} className="add">Add to Cart +</button>
 
-                        <button onClick={this.handleClick}className="add">Add to Cart +</button>
-                    </div>
-                </div>
+                        
+                    </Grid.Column>
+                    
+                </Grid>
+
+
             </div>
+            <Footer />
+            </>
         )
 
     }

@@ -208,7 +208,7 @@ input[type=text], select  {
   letter-spacing: 7px;
   font-size: 90px;
   position: absolute;
-  top: 1800px;
+  top: 1700px;
   right: 970px;
   
 
@@ -245,7 +245,7 @@ text-align: center;
   color: rgba(191,149,90,0.95);
   font-size: 30px;
   font-weight: bold;
-  margin-left: 200px;
+  margin-left: 250px;
 
   
 }
@@ -311,7 +311,19 @@ justify-content: space-around;
   color: white;
   
 }
-
+.need-help{
+  font-size: 40px;
+}
+.li-it{
+  font-size: 25px;
+  padding: 15px;
+  color:  rgba(191,149,90,0.95);
+}
+.phone{
+  font-size: 35px;
+  color:  rgba(191,149,90,0.95);
+  
+}
 
 .list-unstyled {
   list-style-type: none;
@@ -338,31 +350,55 @@ cursor: pointer;
   font-size: 100px;
   font-family: 'Gotham';
   color: #512c1d;
+  display:flex;
+  align-self: center;
+ 
 }
 
 .bean{
   color: #512c1d;
   font-size: 50px;
+  display:flex;
+  align-items: flex-end;
+ 
 }
 
 .desc {
   font-size: 20px;
+  display:flex;
+  align-self: flex-end;
+  margin-bottom: 205px;
+  margin-left: -500px;
+
+  
 }
 
 .detail-cont{
   display: flex;
+  border: 10px solid green;
 }
 
 .child {
   align-items:center;
   display:flex;
+  border: 10px solid yellow;
 }
 .desc-info{
 
-  align-items:center;
-  display:flex;
+
+  padding: 175px;
+  margin-top: 670px;
+  /* margin-right: 1400px; */
+  
 
 }
+.desc-bean{
+
+  border: 10px solid yellow;
+    
+    
+  
+  }
 
 
 /* SUBSCRIPTIONS */
@@ -450,10 +486,33 @@ width: 950px;
 
 
 
+.location-name{
+  font-size: 150px;
+  font-family: 'Gotham';
+color: #bf955a;
+
+
+}
+
+.hours{
+  font-size:20px;
+  font-weight: 800;
+  color: #bf955a;
+  font-family: 'Gotham'; 
+  
+}
+
+.address{
+  font-size: 30px;
+}
+
+
+
 /* CART CHECKOUT PAGE */
 
 .cart-price,.subtotal{
   margin-top: 50%;
+  font-size: 30px;
 }
 
 .qty-button{

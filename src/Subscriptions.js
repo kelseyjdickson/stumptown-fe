@@ -6,6 +6,7 @@ import holler from './photos/holler.png'
 import house from './photos/houseblend.png'
 import frenchro from './photos/frenchro.png'
 import trapper from './photos/trapper.png'
+import FormModal from './FormModal'
 
 
 
@@ -36,9 +37,9 @@ class Subscriptions extends React.Component {
                 </div>
 
                 <div className="sub-3">
-                    <button class="button1">Free Sample</button>
-                    <button class="button1">Select</button>
-                    <button class="button1">Select</button>
+                    <button ><FormModal/></button>
+                    <button><FormModal/></button>
+                    <button ><FormModal/></button>
 
                 </div>
 
@@ -67,10 +68,10 @@ class Subscriptions extends React.Component {
                 </div>
 
                 <div className="sub-3">
-                    <button class="button1">Select</button>
-                    <button class="button1">Select</button>
-                    <button class="button1">Select</button>
-                    <button class="button1">Select</button>
+                    <button ><FormModal/></button>
+                    <button ><FormModal/></button>
+                    <button ><FormModal/></button>
+                    <button ><FormModal/></button>
 
                 </div>
             </>
