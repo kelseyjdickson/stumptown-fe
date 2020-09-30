@@ -1,7 +1,10 @@
 import React from 'react'
 import CartPage from './CartPage'
 import Footer from './Footer';
-import CheckoutModal from './CheckoutModal'
+import CheckoutModalNew from './CheckoutModalNew'
+
+
+
 
 
 
@@ -26,6 +29,7 @@ class Cart extends React.Component {
         
         return (
             <>
+          
            <h1 className="cart-head">CART</h1>
              { this.props.cartArray.length >= 1 ?  this.turnToItemSection() : <h1>No Items in your Cart!</h1>}
           
@@ -41,8 +45,10 @@ class Cart extends React.Component {
             </div>
         </div>
         <div class="button" className="modal-but">
-            <CheckoutModal
-            cartArray={this.props.cartArray}  />
+            <CheckoutModalNew cartArray={this.props.cartArray}/> 
+            
+            {/* <CheckoutModal
+            cartArray={this.props.cartArray}  /> */}
         </div>
 
         </div>

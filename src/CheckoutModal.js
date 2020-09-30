@@ -74,7 +74,7 @@ const CheckoutModal = (props) => {
         </Modal.Content>
         <Modal.Actions>
          
-          <Button positive onClick={() => dispatch({ type: 'close' })}>
+          <Button color="black" className="cart-font" onClick={() => dispatch({ type: 'close' })}>
               <Link  to="/items">
             Return to Homepage
             </Link>

@@ -7,7 +7,8 @@ import house from './photos/houseblend.png'
 import frenchro from './photos/frenchro.png'
 import trapper from './photos/trapper.png'
 import FormModal from './FormModal'
-
+import Footer from './Footer'
+import LogoHeader from './LogoHeader';
 
 
 
@@ -16,6 +17,7 @@ class Subscriptions extends React.Component {
     render() {
         return (
             <>
+            <LogoHeader />
                 <h1 className="choose">Choose your beans</h1>
                 <h3 className="choose1">Fresh coffee delivered every two weeks. Change or cancel anytime. </h3>
                 <div className="sub">
@@ -74,6 +76,8 @@ class Subscriptions extends React.Component {
                     <button ><FormModal/></button>
 
                 </div>
+                <div class="padding"></div>
+                <Footer />
             </>
         )
     }

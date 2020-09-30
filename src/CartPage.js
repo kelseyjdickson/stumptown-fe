@@ -7,6 +7,7 @@ import { Grid, Image, Header, Button } from "semantic-ui-react";
 
 
 
+
 class CartPage extends React.Component{
 
 

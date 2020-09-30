@@ -8,6 +8,7 @@ import Map from './Map1'
 import Portland from './photos/portland.png'
 import NY from './photos/new-york.png'
 import Stump from './photos/stump.jpeg'
+import LogoHeader from './LogoHeader';
 
 
 
@@ -20,6 +21,8 @@ class Locations
     render() {
 
         return (
+<>
+            <LogoHeader />
             <div>
                 <>
                 <div>
@@ -76,7 +79,7 @@ class Locations
 
                 <h2 className="location-name">Greenich Village</h2>
                 <p className="address">30 W 8th Street</p>
-                <p className="address">New York, NY 11201</p>
+                <p className="address">New York, NY 10011</p>
                 <p className="hours">Daily 7am-2pm</p>
                 
 
@@ -87,6 +90,7 @@ class Locations
                 <Footer/>
             </>
             </div>
+            </>
         )
 
     }

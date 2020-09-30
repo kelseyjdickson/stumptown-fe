@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from 'react-router-dom'
 import { Grid } from 'semantic-ui-react'
 import Footer from './Footer'
+import LogoHeader from "./LogoHeader";
 
 
 class ItemDetail extends React.Component {
@@ -41,11 +42,13 @@ class ItemDetail extends React.Component {
             
             
             <>
-            
-            <p className="item-name" >{name}</p>
+            {/* <LogoHeader /> */}
                     <div className="item-deets">
 
                 <Grid columns='equal'>
+            <div className="detail-name">
+            <p className="item-name" >{name}</p>
+            </div>
                    
                     <Grid.Column width={8}>
                        
@@ -56,14 +59,16 @@ class ItemDetail extends React.Component {
                     <Grid.Column >
                         
                         <p className="price1">${price}.00</p>
+                        <div className="max">
                         <p className='desc'> {description}</p>
+                        </div>
                         <p className="bean">{bean}</p>
                         <Link to="/subscriptions">
-                        <p>Available for Subscrption</p>
+                        <p className="sub">Available for Subscrption</p>
                     </Link>
-                    <button onClick={this.handleClick} className="add">Add to Cart +</button>
+                    <button className="add1" onClick={this.handleClick}>Add to Cart +</button>
 
-                        
+                        {/* onClick={this.handleClick} */}
                     </Grid.Column>
                     
                 </Grid>

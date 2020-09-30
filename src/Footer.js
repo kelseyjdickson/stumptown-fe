@@ -1,5 +1,6 @@
 import React from 'react'
 import horseshoe from './photos/horseshoe.png'
+import {Link} from 'react-router-dom'
 
 
 
@@ -28,6 +29,9 @@ class Footer extends React.Component {
                             {/* Column2 */}
                             <div className="col">
                             <ul className="list-unstyled">
+                                <Link to="/login">
+                                <li className="li-it">Login</li>
+                                </Link>
                                 <li className="li-it">Contact</li>
                                 <li className="li-it">Jobs</li>
                                 <li className="li-it">FAQ</li>

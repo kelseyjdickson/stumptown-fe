@@ -2,7 +2,15 @@ import React from 'react'
 import { Button, Header, Image, Modal } from 'semantic-ui-react'
 import stump from './photos/STUMPTOWN.png'
 import { Checkbox, Icon, Form } from 'semantic-ui-react'
-import subimage from './photos/hair.png'
+
+import { Link } from 'react-router-dom'
+import { white } from 'color-name';
+
+
+const buttonColor={
+    color: "white"
+}
+
 
 const mystyle = {
     fontSize: "30px",
@@ -22,13 +30,21 @@ const button = {
     color: "white"
 }
 
-function ModalExampleModal() {
+function ModalExampleModal(props) {
     const [open, setOpen] = React.useState(false)
     const [secondOpen, setSecondOpen] = React.useState(false)
 
 
+    let item = props.cartArray.map((item) => {
+        return item.item.name
+    })
+
+
     return (
+
+
         <Modal
+
             onClose={() => setOpen(false)}
             onOpen={() => setOpen(true)}
             open={open}
@@ -40,10 +56,9 @@ function ModalExampleModal() {
                 <Modal.Description>
                     <Header style={mystyle}>Add your info below</Header>
 
-
                     <Form size='large'>
                         <Form.Field>
-                            <label>First Name</label>
+                            <label className="label-font">First Name</label>
                             <input placeholder='First Name' />
                         </Form.Field>
                         <Form.Field>
@@ -72,17 +87,15 @@ function ModalExampleModal() {
                             <input placeholder='Phone' />
                         </Form.Field>
                         <Form.Field>
-                            <Checkbox label='Stumptown will send you coffee to your door every 2 weeks.' />
+                            <Checkbox label='I agree to the Terms and Conditions' />
                         </Form.Field>
 
+
                     </Form>
-
-
-
-                    <p>If the information below is correct, hit continue</p>
-
                 </Modal.Description>
             </Modal.Content>
+
+
 
 
             <Modal.Actions>
@@ -93,31 +106,42 @@ function ModalExampleModal() {
 
                 </Button>
             </Modal.Actions>
+            {/* <Button style={button}onClick={() => dispatch({ type: 'open', size: 'tiny' })}>
+        Checkout
+        </Button>
+    */}
+
+
+
             <Modal
                 onClose={() => setSecondOpen(false)}
                 open={secondOpen}
                 size='small'
             >
-                <Modal.Header style={mystyle}>Thank you for your Subscrption!</Modal.Header>
+                <Modal.Header style={mystyle}>Thank you for shopping with Stumptown!</Modal.Header>
+
                 <Modal.Content>
-                <p style={mystyle}>Coming to your door in 2 weeks!</p>
-                    <img className="sub-form" src={subimage}alt="stumptown"/>
-                    {/* <p style={mystyle}>Thank you for your subscription!</p> */}
-                  
-         
+                    <h1 className="order-details">Your order has been placed for: </h1>
+                    <li className="li-item">{item}</li><br></br>
+                    <p style={mystyle}>Your order will be shipped in 3-5 business days!</p>
                 </Modal.Content>
                 <Modal.Actions>
-                    <Button
+                    <Button  style={buttonColor}
+                        className="cart-font" onClick={() => ({ type: 'close' })}>
+                        <Link to="/items">
+                            Return to Homepage
+              </Link>
+                    </Button>
 
-                        icon='check'
-                        content='All Done'
-                        onClick={() => setOpen(false)
-                        }
-                    />
                 </Modal.Actions>
             </Modal>
+
+
+
+
         </Modal>
     )
 }
+
 
 export default ModalExampleModal
