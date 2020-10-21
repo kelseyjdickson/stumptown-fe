@@ -5,13 +5,11 @@ import NavBar from './NavBar'
 import ItemDetail from './ItemDetail'
 import './App.css';
 import Locations from './Locations'
-import Banner from './Banner'
 import Cart from './Cart'
-
-import { Route, Switch, withRouter} from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom'
 import Subscriptions from './Subscriptions';
 import Login from './Login'
-import LogoHeader from "./LogoHeader";
+
 
 
 
@@ -28,7 +26,7 @@ class App extends React.Component {
     cartTotal: 0
 
   }
- 
+
 
 
 
@@ -42,7 +40,7 @@ class App extends React.Component {
       })
   }
 
- 
+
 
 
   addItemToCart = (id) => {
@@ -66,28 +64,29 @@ class App extends React.Component {
       this.setState({ cartArray: [...this.state.cartArray] })
     } else {
       // item not in cart, add to cart.
-      this.setState({ 
-        cartArray: [...this.state.cartArray, { item, qty: 1 }]})
+      this.setState({
+        cartArray: [...this.state.cartArray, { item, qty: 1 }]
+      })
     }
   }
 
 
 
 
-componentDidUpdate(prevProps, prevState){
-  if(prevState.cartArray !== this.state.cartArray){
-    let total = this.state.cartArray.reduce((sum, product)=>
-    sum + product.item.price, 0 );
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.cartArray !== this.state.cartArray) {
+      let total = this.state.cartArray.reduce((sum, product) =>
+        sum + product.item.price, 0);
 
-    this.setState({
-      cartTotal: total
-    })
-    console.log("prevState", prevState)
-    console.log("State",this.state)
-  } 
-}
+      this.setState({
+        cartTotal: total
+      })
+      console.log("prevState", prevState)
+      console.log("State", this.state)
+    }
+  }
 
-   
+
 
 
 
@@ -99,30 +98,11 @@ componentDidUpdate(prevProps, prevState){
   }
 
 
-  // handlePageChange = page => {
-  //   this.setState({ page })
-  // }
 
-  // getCurrentPage(){
-  //   switch (this.state.page) {
-
-  //     case "items":
-  //       return <ItemContainer
-  //         items={this.state.items}
-  //         onPageChange={this.handlePageChange}
-  //       />
-
-  //     case "item-detail":
-  //       return <ItemDetail />
-
-  //     default:
-  //       return <h1>404 not found</h1>
-  //   }
-  // }
 
   removeItem = (itemObj) => {
     let updatedCart = this.state.cartArray.filter((item) => {
-      return item !== itemObj 
+      return item !== itemObj
     })
     this.setState({
       cartArray: updatedCart
@@ -130,7 +110,13 @@ componentDidUpdate(prevProps, prevState){
 
   }
 
-  
+  clearItems = () => {
+    this.setState({
+      cartArray: []
+    });
+  }
+
+
   render() {
     console.log(this.props)
 
@@ -138,27 +124,27 @@ componentDidUpdate(prevProps, prevState){
       return itemObj.name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
     })
 
-    const cartActions = { addItemToCart: this.addItemToCart, deleteItemFromCart: this.deleteItemFromCart, calculateCartTotal: this.calculateCartTotal, addItemToCartDetail:this.addItemToCartDetail }
+    const cartActions = { addItemToCart: this.addItemToCart, deleteItemFromCart: this.deleteItemFromCart, calculateCartTotal: this.calculateCartTotal, addItemToCartDetail: this.addItemToCartDetail, clearItems: this.clearItems }
 
     return (
-  <div className="App">
-   
 
-        
-       
-      
-       {'/items' === this.props.location.pathname ? <Header/> : null}
-      
+
+
+
+      <div className="App">
+
+        {'/items' === this.props.location.pathname ? <Header /> : null}
+
         <NavBar searchTerm={this.state.searchTerm}
           changeSearchTerm={this.changeSearchTerm}
           cartArray={this.state.cartArray}
           cartActions={cartActions} />
-         
+
         <main>
           <Switch>
             {/* ITEM CONTAINER */}
             <Route path="/items" exact>
-              <ItemContainer style={{backgroundColor:"white"}}
+              <ItemContainer style={{ backgroundColor: "white" }}
                 items={filteredItems}
                 cartActions={cartActions}
 
@@ -166,9 +152,9 @@ componentDidUpdate(prevProps, prevState){
             </Route>
             {/* ITEM DETAIL */}
             <Route path="/items/:id" render={routeProps => {
-              return <ItemDetail match={routeProps.match} 
-              cartActions={cartActions}
-              addItemToCart={this.addItemToCart}/>
+              return <ItemDetail match={routeProps.match}
+                cartActions={cartActions}
+                addItemToCart={this.addItemToCart} />
             }} />
             {/* LOCATIONS */}
             <Route path="/locations">
@@ -176,25 +162,25 @@ componentDidUpdate(prevProps, prevState){
             </Route>
             <Route path="/cart" >
               <Cart
-               cartArray={this.state.cartArray}
-               cartActions={this.props.cartActions}
-               removeItem={this.removeItem}
-               cartTotal={this.state.cartTotal}/>
+                cartArray={this.state.cartArray}
+                cartActions={cartActions}
+                removeItem={this.removeItem}
+                cartTotal={this.state.cartTotal} />
             </Route>
             <Route path="/subscriptions">
-            <Subscriptions/>
+              <Subscriptions />
             </Route>
           </Switch>
-        
-      <Route path="/login"exact>
-      <Login/>
-      </Route>
+
+          {/* <Route path="/login" exact>
+            <Login />
+          </Route> */}
         </main>
-        </div>
-         
-      
-          
-        
+      </div>
+
+
+
+
     );
   }
 }

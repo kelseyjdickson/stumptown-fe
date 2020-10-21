@@ -31,42 +31,6 @@ class Login extends React.Component {
   }
 
  
-
-  // handleChange = (e) => {
-  //   const target = e.target;
-  //   const value = target.value;
-  //   const name = target.name;
-  //   this.setState({
-  //     [name]: value,
-  //   });
-  // }
-
-  // handleClick = evt => {
-  //     evt.preventDefault()
-
-
-
-
-  // fetch("http://localhost3000/users/login",{
-  //     method: "POST",
-  //     headers: {
-  //         'content-type': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //         usernameInput: this.state.username,
-  //         password: this.state.password
-
-  //     })
-  // })
-  // .then(res=> res.json())
-  // .then((response) => {
-  //   console.log("yoyo",response)
-  //     //Dont know what to do here.
-
-  // })
-
-
-  // }
   render() {
 
     return (
@@ -98,7 +62,6 @@ class Login extends React.Component {
   }
 }
 
-// value={this.state.password} onChange={this.handleChange}
-//value={this.state.username}onChange={this.handleChange}
+
 
 export default Login;

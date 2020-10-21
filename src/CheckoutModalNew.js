@@ -4,10 +4,10 @@ import stump from './photos/STUMPTOWN.png'
 import { Checkbox, Icon, Form } from 'semantic-ui-react'
 
 import { Link } from 'react-router-dom'
-import { white } from 'color-name';
 
 
-const buttonColor={
+
+const buttonColor = {
     color: "white"
 }
 
@@ -48,7 +48,7 @@ function ModalExampleModal(props) {
             onClose={() => setOpen(false)}
             onOpen={() => setOpen(true)}
             open={open}
-            trigger={<Button style={button}>Select</Button>}
+            trigger={<Button style={button}>Checkout</Button>}
         >
             <Modal.Header style={mystyle}>Shipping</Modal.Header>
             <Modal.Content image>
@@ -106,15 +106,14 @@ function ModalExampleModal(props) {
 
                 </Button>
             </Modal.Actions>
-            {/* <Button style={button}onClick={() => dispatch({ type: 'open', size: 'tiny' })}>
-        Checkout
-        </Button>
-    */}
+
 
 
 
             <Modal
-                onClose={() => setSecondOpen(false)}
+                onClose={() => {
+                    setSecondOpen(false);
+                }}
                 open={secondOpen}
                 size='small'
             >
@@ -122,23 +121,22 @@ function ModalExampleModal(props) {
 
                 <Modal.Content>
                     <h1 className="order-details">Your order has been placed for: </h1>
-                    <li className="li-item">{item}</li><br></br>
+                    <p className="li-item">{item}</p><br></br>
                     <p style={mystyle}>Your order will be shipped in 3-5 business days!</p>
                 </Modal.Content>
                 <Modal.Actions>
-                    <Button  style={buttonColor}
-                        className="cart-font" onClick={() => ({ type: 'close' })}>
+                    <Button style={buttonColor}
+                        className="cart-font" onClick={() => {
+                            props.onDone();
+                            return { type: 'close' }
+                        }}>
                         <Link to="/items">
                             Return to Homepage
-              </Link>
+                        </Link>
                     </Button>
 
                 </Modal.Actions>
             </Modal>
-
-
-
-
         </Modal>
     )
 }

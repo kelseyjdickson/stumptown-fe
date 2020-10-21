@@ -38,6 +38,7 @@ function ModalExampleModal() {
             <Modal.Content image>
                 <Image size='medium' src={stump} wrapped />
                 <Modal.Description>
+                    
                     <Header style={mystyle}>Add your info below</Header>
 
 
@@ -46,10 +47,12 @@ function ModalExampleModal() {
                             <label>First Name</label>
                             <input placeholder='First Name' />
                         </Form.Field>
+                        
                         <Form.Field>
                             <label>Last Name</label>
                             <input placeholder='Last Name' />
                         </Form.Field>
+                        
                         <Form.Field>
                             <label>Address</label>
                             <input placeholder='Address' />
@@ -59,23 +62,26 @@ function ModalExampleModal() {
                             <label>City</label>
                             <input placeholder='City' />
                         </Form.Field>
+                        
                         <Form.Field>
                             <label>State</label>
                             <input placeholder='State' />
                         </Form.Field>
+                        
                         <Form.Field>
                             <label>Zip</label>
                             <input placeholder='Zip' />
                         </Form.Field>
+                        
                         <Form.Field>
                             <label>Phone</label>
                             <input placeholder='Phone' />
                         </Form.Field>
+                        
                         <Form.Field>
                             <Checkbox label='Stumptown will send you coffee to your door every 2 weeks.' />
                         </Form.Field>
-
-                    </Form>
+                        </Form>
 
 
 
@@ -88,27 +94,23 @@ function ModalExampleModal() {
             <Modal.Actions>
                 <Button color='black' onClick={() => setOpen(false)}>
                     Edit
-        </Button>
-                <Button color="black" onClick={() => setSecondOpen(true)} > Continue <Icon name='right chevron' />
-
                 </Button>
+                <Button color="black" onClick={() => setSecondOpen(true)} > Continue <Icon name='right chevron' /></Button>
             </Modal.Actions>
             <Modal
                 onClose={() => setSecondOpen(false)}
                 open={secondOpen}
-                size='small'
-            >
+                size='small'>
+
                 <Modal.Header style={mystyle}>Thank you for your Subscrption!</Modal.Header>
+                
                 <Modal.Content>
-                <p style={mystyle}>Coming to your door in 2 weeks!</p>
-                    <img className="sub-form" src={subimage}alt="stumptown"/>
-                    {/* <p style={mystyle}>Thank you for your subscription!</p> */}
-                  
-         
+                    <p style={mystyle}>Coming to your door in 2 weeks!</p>
+                    <img className="sub-form" src={subimage} alt="stumptown" />
                 </Modal.Content>
+                
                 <Modal.Actions>
                     <Button
-
                         icon='check'
                         content='All Done'
                         onClick={() => setOpen(false)
