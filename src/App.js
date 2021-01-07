@@ -8,7 +8,7 @@ import Locations from './Locations'
 import Cart from './Cart'
 import { Route, Switch, withRouter } from 'react-router-dom'
 import Subscriptions from './Subscriptions';
-import Login from './Login'
+
 
 
 
